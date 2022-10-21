@@ -1,0 +1,23 @@
+
+h1 {
+    color: purple;
+}
+
+#header1 {
+    color: green;
+}
+
+#mydiv {
+    margin: 100px;
+    background-color: aqua;
+}
+
+#mydiv h1 {
+    color: green;
+}
+
+#mydiv1 > h1 {
+    color: blueviolet;
+    background-color: bisque;
+    font-family: Arial, Helvetica, sans-serif;
+}
