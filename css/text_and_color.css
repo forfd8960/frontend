@@ -1,0 +1,28 @@
+
+p {
+    color: rgb(195, 0, 255);
+}
+
+h2 {
+    color: rgba(255, 0, 0, 128);
+}
+
+h3 {
+    color: hsl(147, 100%, 50%);
+}
+
+p { 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+h5 {
+    text-transform: capitalize;
+}
+
+h6 {
+    font-size: large;
+    text-transform: uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: underline green solid 3px;
+}

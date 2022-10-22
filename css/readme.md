@@ -91,3 +91,21 @@ p.introduction {
     color: blue;
 }
 ```
+
+* :hover Pseudo-Class
+
+A special keyword called a pseudo-class allows developers to select elements based on their state
+
+
+```html
+<a href=""> Link </a>
+
+```
+
+```css
+a:hover {
+    color: blue;
+}
+
+```
+
