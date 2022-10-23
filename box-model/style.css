@@ -1,0 +1,17 @@
+h1 {
+    border-width: medium;
+}
+
+#header1 {
+    border-width:medium;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#header2 {
+    margin: 20px 10px 5px 50px;
+    padding: 10px 10px 5px 20px;
+    border-width: 20px 5px 10px 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
