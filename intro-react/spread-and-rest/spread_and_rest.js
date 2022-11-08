@@ -2,10 +2,12 @@ const arr = [33, 675, 900];
 const newArr = [...arr, 88, 160];
 console.log(newArr); // [ 33, 675, 900, 88, 160 ]
 
-const sortNums = (...nums) => {
-    return nums.sort();
+const filter = (...nums) => {
+    return nums.filter(el => {
+        return el % 2 == 0;
+    });
 }
-console.log(sortNums(33, 675, 900, 88, 160));
+console.log(filter(33, 675, 900, 88, 160));
 
 const person = {
     name: "Alice",
