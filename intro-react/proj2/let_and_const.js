@@ -27,3 +27,7 @@ const fnWithMiltiArgs = (name, age, weight) => {
     console.log(weight);
 }
 fnWithMiltiArgs('Alice', 20, "50kg");
+
+const multiply = (num) => num ** 2;
+console.log(multiply(2));
+console.log(multiply(10));
