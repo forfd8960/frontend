@@ -29,8 +29,8 @@ function App() {
   return (
     <div className="App">
        <ExpenseItem title = {expenses[0].title} price={expenses[0].price} date={expenses[0].date} />
-       <ExpenseItem title = {expenses[1].title} price={expenses[1].price} date={expenses[0].date} />
-       <ExpenseItem title = {expenses[2].title} price={expenses[2].price} date={expenses[0].date} />
+       <ExpenseItem title = {expenses[1].title} price={expenses[1].price} date={expenses[1].date} />
+       <ExpenseItem title = {expenses[2].title} price={expenses[2].price} date={expenses[2].date} />
       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
