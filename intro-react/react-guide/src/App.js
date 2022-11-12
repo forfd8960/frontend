@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Expenses from './components/Expenses';
+import Expenses from './components/Expense/Expenses';
 
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "id1",
