@@ -15,9 +15,15 @@ const ExpenseForm = () => {
 
   const titleChangeHdler = (event) => {
     console.log("title changed: ", event.target.value);
-    setUserInput({
-        ... userInput, // to prevent previous lost of the value of the other fields
-        inputTitle: event.target.value,
+    // setUserInput({
+    //     ... userInput, // to prevent previous lost of the value of the other fields
+    //     inputTitle: event.target.value,
+    // });
+
+    // When state update depende on prev state
+    // This is safer way to ensure prevState is the latest state snapshort
+    setUserInput((prevState) => {
+        return {...prevState, inputTitle: event.target.value}
     });
   };
 
