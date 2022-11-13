@@ -3,23 +3,38 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const [inputTitle, setInputTitle] = useState("");
-  const [inputAmount, setInputAmount] = useState("0.01");
-  const [inputDate, setInputDate] = useState("");
+//   const [inputTitle, setInputTitle] = useState("");
+//   const [inputAmount, setInputAmount] = useState("0.01");
+//   const [inputDate, setInputDate] = useState("");
+
+    const [userInput, setUserInput] = useState({
+        inputTitle: '',
+        inputAmount: '',
+        inputDate: '',
+    });
 
   const titleChangeHdler = (event) => {
     console.log("title changed: ", event.target.value);
-    setInputTitle(event.target.value);
+    setUserInput({
+        ... userInput, // to prevent previous lost of the value of the other fields
+        inputTitle: event.target.value,
+    });
   };
 
   const amountChangeHdler = (event) => {
     console.log("amount changed: ", event.target.value);
-    setInputAmount(event.target.value);
+    setUserInput({
+        ...userInput,
+        inputAmount: event.target.value
+    });
   };
 
   const dateChangeHdler = (event) => {
     console.log("date changed: ", event.target.value);
-    setInputDate(event.target.value);
+    setUserInput({
+        ...userInput,
+        inputDate: event.target.value
+    });
   };
 
   return (
