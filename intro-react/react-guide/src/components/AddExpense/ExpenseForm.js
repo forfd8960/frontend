@@ -3,18 +3,19 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-//   const [inputTitle, setInputTitle] = useState("");
-//   const [inputAmount, setInputAmount] = useState("0.01");
-//   const [inputDate, setInputDate] = useState("");
+    const [inputTitle, setInputTitle] = useState("");
+    const [inputAmount, setInputAmount] = useState("0.01");
+    const [inputDate, setInputDate] = useState("");
 
-    const [userInput, setUserInput] = useState({
-        inputTitle: '',
-        inputAmount: '',
-        inputDate: '',
-    });
+//   const [userInput, setUserInput] = useState({
+//     inputTitle: "",
+//     inputAmount: "",
+//     inputDate: "",
+//   });
 
   const titleChangeHdler = (event) => {
     console.log("title changed: ", event.target.value);
+    setInputTitle(event.target.value);
     // setUserInput({
     //     ... userInput, // to prevent previous lost of the value of the other fields
     //     inputTitle: event.target.value,
@@ -22,33 +23,50 @@ const ExpenseForm = () => {
 
     // When state update depende on prev state
     // This is safer way to ensure prevState is the latest state snapshort
-    setUserInput((prevState) => {
-        return {...prevState, inputTitle: event.target.value}
-    });
+    // setUserInput((prevState) => {
+    //   return { ...prevState, inputTitle: event.target.value };
+    // });
   };
 
   const amountChangeHdler = (event) => {
     console.log("amount changed: ", event.target.value);
-    setUserInput({
-        ...userInput,
-        inputAmount: event.target.value
-    });
+    setInputAmount(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   inputAmount: event.target.value,
+    // });
   };
 
   const dateChangeHdler = (event) => {
     console.log("date changed: ", event.target.value);
-    setUserInput({
-        ...userInput,
-        inputDate: event.target.value
-    });
+    setInputDate(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   inputDate: event.target.value,
+    // });
+  };
+
+  const formHandler = (event) => {
+    event.preventDefault();
+
+    const expenseData = {
+      title: inputTitle,
+      amount: inputAmount,
+      date: new Date(inputDate),
+    };
+    console.log("User Input: ", expenseData);
+
+    setInputTitle('');
+    setInputAmount('');
+    setInputDate('');
   };
 
   return (
-    <form>
+    <form onSubmit={formHandler}>
       <div className="add-expense__controls">
         <div className="add-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHdler} />
+          <input type="text" onChange={titleChangeHdler} value={inputTitle}/>
         </div>
 
         <div className="add-expense__control">
@@ -57,6 +75,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={inputAmount} // two way binding
             onChange={amountChangeHdler}
           />
         </div>
@@ -67,6 +86,7 @@ const ExpenseForm = () => {
             type="date"
             min="202-11-01"
             max="2023-12-31"
+            value={inputDate}
             onChange={dateChangeHdler}
           />
         </div>
