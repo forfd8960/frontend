@@ -3,6 +3,8 @@ import './App.css';
 
 import Expenses from './components/Expense/Expenses';
 
+import AddExpense from './components/AddExpense/AddExpense';
+
 
 const App = () => {
   const expenses = [
@@ -28,6 +30,7 @@ const App = () => {
 
   return (
     <div className="App">
+       <AddExpense />
        <Expenses items={expenses}/>
       
       <header className="App-header">
