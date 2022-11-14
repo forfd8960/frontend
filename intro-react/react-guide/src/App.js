@@ -1,42 +1,49 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+import React, { useState } from 'react';
+
 
 import Expenses from "./components/Expense/Expenses";
 import AddExpense from "./components/AddExpense/AddExpense";
 
+const INIT_EXPENSES = [
+  {
+    id: "id1",
+    title: "Youtube Fee",
+    amount: 10,
+    date: new Date(2022, 11, 2),
+  },
+  {
+    id: "id2",
+    title: "VPN",
+    amount: 5,
+    date: new Date(2022, 11, 8),
+  },
+  {
+    id: "id3",
+    title: "VPS",
+    amount: 5,
+    date: new Date(2022, 11, 10),
+  },
+];
+
 
 const App = () => {
-  const expenses = [
-    {
-      id: "id1",
-      title: "Youtube Fee",
-      price: 10,
-      date: new Date(2022, 11, 2),
-    },
-    {
-      id: "id2",
-      title: "VPN",
-      price: 5,
-      date: new Date(2022, 11, 8),
-    },
-    {
-      id: "id3",
-      title: "VPS",
-      price: 5,
-      date: new Date(2022, 11, 10),
-    },
-  ];
+  const [expensesData, setExpensesData] = useState(INIT_EXPENSES); 
 
   const addExpenseHandler = (expense) => {
     console.log("In App.js");
     console.log("expense: ", expense);
+    setExpensesData((prevExpeneses) => {
+      return [expense, ...prevExpeneses];
+    });
   };
 
   return (
     <div className="App">
       <AddExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={expensesData} />
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
