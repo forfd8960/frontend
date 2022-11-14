@@ -5,10 +5,19 @@ import './AddExpense.css';
 import ExpenseForm from './ExpenseForm';
 
 
-const AddExpense = () => {
+const AddExpense = (props) => {
+    const saveExpenseDataHandler = (inputExpenseData) => {
+        const expenseData = {
+            ...inputExpenseData,
+            id: Math.random().toString()
+        };
+
+        console.log('AddExpense: ', expenseData);
+        props.onAddExpense(expenseData);
+    }
     return (
         <div className='add-expense'>
-            <ExpenseForm></ExpenseForm>
+            <ExpenseForm onSaveExpenseData = {saveExpenseDataHandler}></ExpenseForm>
         </div>
     );
 }

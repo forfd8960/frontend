@@ -1,9 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
-import Expenses from './components/Expense/Expenses';
 
-import AddExpense from './components/AddExpense/AddExpense';
+import Expenses from "./components/Expense/Expenses";
+import AddExpense from "./components/AddExpense/AddExpense";
 
 
 const App = () => {
@@ -12,27 +12,32 @@ const App = () => {
       id: "id1",
       title: "Youtube Fee",
       price: 10,
-      date: new Date(2022, 11, 2)
+      date: new Date(2022, 11, 2),
     },
     {
       id: "id2",
       title: "VPN",
       price: 5,
-      date: new Date(2022, 11, 8)
+      date: new Date(2022, 11, 8),
     },
     {
       id: "id3",
       title: "VPS",
       price: 5,
-      date: new Date(2022, 11, 10)
+      date: new Date(2022, 11, 10),
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log("expense: ", expense);
+  };
+
   return (
     <div className="App">
-       <AddExpense />
-       <Expenses items={expenses}/>
-      
+      <AddExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -51,6 +56,6 @@ const App = () => {
       </header>
     </div>
   );
-}
+};
 
 export default App;
