@@ -40,6 +40,8 @@ const App = () => {
     });
   };
 
+  console.log("expensesData: ", expensesData);
+
   return (
     <div className="App">
       <AddExpense onAddExpense={addExpenseHandler} />
