@@ -3,15 +3,17 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-    const [inputTitle, setInputTitle] = useState("");
-    const [inputAmount, setInputAmount] = useState("0.01");
-    const [inputDate, setInputDate] = useState("");
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputAmount, setInputAmount] = useState("0.01");
+  const [inputDate, setInputDate] = useState("");
 
-//   const [userInput, setUserInput] = useState({
-//     inputTitle: "",
-//     inputAmount: "",
-//     inputDate: "",
-//   });
+  const [showForm, setShowForm] = useState(true);
+
+  //   const [userInput, setUserInput] = useState({
+  //     inputTitle: "",
+  //     inputAmount: "",
+  //     inputDate: "",
+  //   });
 
   const titleChangeHdler = (event) => {
     console.log("title changed: ", event.target.value);
@@ -57,41 +59,51 @@ const ExpenseForm = (props) => {
     console.log("User Input: ", expenseData);
     props.onSaveExpenseData(expenseData);
 
-    setInputTitle('');
-    setInputAmount('');
-    setInputDate('');
+    setInputTitle("");
+    setInputAmount("");
+    setInputDate("");
+
+    if (showForm) {
+      setShowForm(false);
+    } else {
+      setShowForm(true);
+    }
   };
+
+  const formContent = (
+    <div className="add-expense__controls">
+      <div className="add-expense__control">
+        <label>Title</label>
+        <input type="text" onChange={titleChangeHdler} value={inputTitle} />
+      </div>
+
+      <div className="add-expense__control">
+        <label>Amount</label>
+        <input
+          type="number"
+          min="0.01"
+          step="0.01"
+          value={inputAmount} // two way binding
+          onChange={amountChangeHdler}
+        />
+      </div>
+
+      <div className="add-expense__control">
+        <label>Date</label>
+        <input
+          type="date"
+          min="202-11-01"
+          max="2023-12-31"
+          value={inputDate}
+          onChange={dateChangeHdler}
+        />
+      </div>
+    </div>
+  );
 
   return (
     <form onSubmit={formHandler}>
-      <div className="add-expense__controls">
-        <div className="add-expense__control">
-          <label>Title</label>
-          <input type="text" onChange={titleChangeHdler} value={inputTitle}/>
-        </div>
-
-        <div className="add-expense__control">
-          <label>Amount</label>
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            value={inputAmount} // two way binding
-            onChange={amountChangeHdler}
-          />
-        </div>
-
-        <div className="add-expense__control">
-          <label>Date</label>
-          <input
-            type="date"
-            min="202-11-01"
-            max="2023-12-31"
-            value={inputDate}
-            onChange={dateChangeHdler}
-          />
-        </div>
-      </div>
+      {showForm ? formContent : null}
       <div className="add-expense__actions">
         <button type="submit">Add Expense</button>
       </div>
