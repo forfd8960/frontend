@@ -17,8 +17,8 @@ const Button = styled.button`
 
   &:hover,
   &:active {
-    background: #ac0e77;
-    border-color: #ac0e77;
+    background: #0e5dac;
+    border-color: #0e7fac;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
   }
 `;
